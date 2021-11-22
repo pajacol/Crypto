@@ -22,65 +22,65 @@ _gost_key_schedule@4:
     push    esi
     mov     esi, DWORD PTR [esp+8]
     lodsd
-    rol     ax, 8
+    xchg    al, ah
     rol     eax, 16
-    rol     ax, 8
+    xchg    al, ah
     mov     DWORD PTR [esi-4], eax
     mov     DWORD PTR [esi+28], eax
     mov     DWORD PTR [esi+60], eax
     mov     DWORD PTR [esi+120], eax
     lodsd
-    rol     ax, 8
+    xchg    al, ah
     rol     eax, 16
-    rol     ax, 8
+    xchg    al, ah
     mov     DWORD PTR [esi-4], eax
     mov     DWORD PTR [esi+28], eax
     mov     DWORD PTR [esi+60], eax
     mov     DWORD PTR [esi+112], eax
     lodsd
-    rol     ax, 8
+    xchg    al, ah
     rol     eax, 16
-    rol     ax, 8
+    xchg    al, ah
     mov     DWORD PTR [esi-4], eax
     mov     DWORD PTR [esi+28], eax
     mov     DWORD PTR [esi+60], eax
     mov     DWORD PTR [esi+104], eax
     lodsd
-    rol     ax, 8
+    xchg    al, ah
     rol     eax, 16
-    rol     ax, 8
+    xchg    al, ah
     mov     DWORD PTR [esi-4], eax
     mov     DWORD PTR [esi+28], eax
     mov     DWORD PTR [esi+60], eax
     mov     DWORD PTR [esi+96], eax
     lodsd
-    rol     ax, 8
+    xchg    al, ah
     rol     eax, 16
-    rol     ax, 8
+    xchg    al, ah
     mov     DWORD PTR [esi-4], eax
     mov     DWORD PTR [esi+28], eax
     mov     DWORD PTR [esi+60], eax
     mov     DWORD PTR [esi+88], eax
     lodsd
-    rol     ax, 8
+    xchg    al, ah
     rol     eax, 16
-    rol     ax, 8
+    xchg    al, ah
     mov     DWORD PTR [esi-4], eax
     mov     DWORD PTR [esi+28], eax
     mov     DWORD PTR [esi+60], eax
     mov     DWORD PTR [esi+80], eax
     lodsd
-    rol     ax, 8
+    xchg    al, ah
     rol     eax, 16
-    rol     ax, 8
+    xchg    al, ah
     mov     DWORD PTR [esi-4], eax
     mov     DWORD PTR [esi+28], eax
     mov     DWORD PTR [esi+60], eax
     mov     DWORD PTR [esi+72], eax
     lodsd
-    rol     ax, 8
+    xchg    al, ah
     rol     eax, 16
-    rol     ax, 8
+    xchg    al, ah
     mov     DWORD PTR [esi-4], eax
     mov     DWORD PTR [esi+28], eax
     mov     DWORD PTR [esi+60], eax
@@ -116,11 +116,11 @@ gost:
     sub     ebx, 353
     mov     edx, DWORD PTR [ebp+4]
     mov     ebp, 32
-    rol     ax, 8
+    xchg    al, ah
     rol     dx, 8
     rol     eax, 16
     rol     edx, 16
-    rol     ax, 8
+    xchg    al, ah
     rol     dx, 8
 gost_loop:
     mov     cl, 8
@@ -143,11 +143,11 @@ s_box:
     xchg    eax, edx                    ; L', R'
     jne     gost_loop
     mov     ebp, DWORD PTR [esp+20]
-    rol     ax, 8
+    xchg    al, ah
     rol     dx, 8
     rol     eax, 16
     rol     edx, 16
-    rol     ax, 8
+    xchg    al, ah
     rol     dx, 8
     mov     DWORD PTR [ebp+0], edx
     mov     DWORD PTR [ebp+4], eax
